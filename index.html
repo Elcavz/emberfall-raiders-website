@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Emberfall Raiders — Co-op Dungeon Action RPG for Android</title>
+  <meta name="description" content="Pick a hero, fight through endless dungeon stages, defeat a boss every 5th stage and raid with up to 4 friends. Free on Android.">
+  <meta name="theme-color" content="#0c0816">
+  <link rel="icon" type="image/png" href="assets/img/icon.png">
+  <link rel="apple-touch-icon" href="assets/img/icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Emberfall Raiders — Co-op Dungeon Action RPG">
+  <meta property="og:description" content="3 heroes, 3 realms, 3 bosses, endless stages and 4-player co-op. Free on Android.">
+  <meta property="og:image" content="assets/img/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cinzel+Decorative:wght@900&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="#top"><img src="assets/img/icon.png" alt="" width="40" height="40"><span>EMBERFALL RAIDERS</span></a>
+      <ul class="nav-links">
+        <li><a href="#heroes">Heroes</a></li>
+        <li><a href="#realms">Realms</a></li>
+        <li><a href="#bosses">Bosses</a></li>
+        <li><a href="#coop">Co-op</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="btn nav-cta" href="#download">Play Free</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow">Co-op dungeon action RPG</span>
+          <h1><span class="t1">EMBERFALL</span><span class="t2">RAIDERS</span></h1>
+          <p class="lead">Pick your hero, dive into <strong>endless dungeon stages</strong> and carve through monster hordes. Face a <strong>boss every 5th stage</strong>, grow stronger with every level, and raid with <strong>up to 4 friends</strong>.</p>
+          <div class="cta-row">
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.elcavz.emberfallraiders" target="_blank" rel="noopener">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#00d7fe" d="M7.5 4.3 27.2 24 7.5 43.7c-.6-.4-1-1.1-1-2V6.3c0-.9.4-1.6 1-2z"/><path fill="#00f076" d="m33.7 17.5-6.5 6.5L7.5 4.3c.4-.3 1-.4 1.5-.4.4 0 .8.1 1.2.3z"/><path fill="#ff3a44" d="M33.7 30.5 10.2 43.8c-.4.2-.8.3-1.2.3-.5 0-1.1-.1-1.5-.4L27.2 24z"/><path fill="#ffd500" d="m41.3 26.3-7.6 4.2-6.5-6.5 6.5-6.5 7.6 4.2c.8.5 1.3 1.3 1.3 2.3s-.5 1.8-1.3 2.3z"/></svg>
+              <span><small>Get it on</small><b>Google Play</b></span>
+            </a>
+            <a class="btn btn-ghost" href="downloads/EmberfallRaiders.apk" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+              Download APK
+            </a>
+          </div>
+          <div class="meta-row"><span>Free to play</span><span>No ads</span><span>Android 7.0+</span><span>About 5 MB</span></div>
+        </div>
+
+        <div class="stage reveal d2" aria-hidden="true">
+          <div class="halo"></div>
+          <div class="float-sprite fs-drake" data-depth="18"><span data-sprite="enemy:drake"></span></div>
+          <div class="phone">
+            <div class="screen">
+              <img class="on" src="assets/img/screens/action.jpg" alt="">
+              <img src="assets/img/screens/menu.jpg" alt="" loading="lazy">
+              <img src="assets/img/screens/perks.jpg" alt="" loading="lazy">
+              <img src="assets/img/screens/coop.jpg" alt="" loading="lazy">
+            </div>
+          </div>
+          <div class="float-sprite fs-ranger" data-depth="30"><span data-sprite="ranger"></span></div>
+          <div class="float-sprite fs-mage" data-depth="36"><span data-sprite="mage"></span></div>
+          <div class="float-sprite fs-knight" data-depth="46"><span data-sprite="knight"></span></div>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><i></i>Scroll</div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" aria-label="Game at a glance">
+      <ul class="wrap">
+        <li><b data-count="3">3</b><span>Heroes</span></li>
+        <li><b data-count="3">3</b><span>Realms</span></li>
+        <li><b data-count="9">9</b><span>Monsters</span></li>
+        <li><b data-count="12">12</b><span>Perks</span></li>
+        <li><b data-count="4">4</b><span>Player co-op</span></li>
+        <li><b>∞</b><span>Stages</span></li>
+      </ul>
+    </section>
+
+    <!-- ============ HEROES ============ -->
+    <section class="section" id="heroes">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Choose your hero</span>
+          <h2>Three heroes. <span class="fire-text">Three ways to raid.</span></h2>
+          <p>Attacks fire automatically at the nearest enemy, so you focus on moving, dodging and timing your skill.</p>
+        </div>
+        <div class="hero-grid">
+          <article class="hero-card reveal" style="--c:#5484e4">
+            <div class="portrait"><span data-sprite="knight"></span></div>
+            <span class="role">Ember Guard · Melee</span>
+            <h3>Knight</h3>
+            <p>Tough melee fighter who cleaves through whole crowds with every swing.</p>
+            <div class="bars">
+              <div class="bar">HP<i style="--v:100%"></i><em>150</em></div>
+              <div class="bar">DAMAGE<i style="--v:100%"></i><em>20</em></div>
+              <div class="bar">SPEED<i style="--v:88%"></i><em>235</em></div>
+              <div class="bar">RANGE<i style="--v:28%"></i><em>125</em></div>
+            </div>
+            <div class="skill">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 4v5h-5"/></svg></span>
+              <div><b>Whirlwind · 6s</b><span>Spin and smash every foe around you</span></div>
+            </div>
+            <div class="unlock">Unlock: <span class="tag free">Free from the start</span></div>
+          </article>
+
+          <article class="hero-card reveal d1" style="--c:#46be6e">
+            <div class="portrait"><span data-sprite="ranger"></span></div>
+            <span class="role">Wild Archer · Ranged</span>
+            <h3>Ranger</h3>
+            <p>The fastest hero. Picks enemies off from far away before they get close.</p>
+            <div class="bars">
+              <div class="bar">HP<i style="--v:70%"></i><em>105</em></div>
+              <div class="bar">DAMAGE<i style="--v:70%"></i><em>14</em></div>
+              <div class="bar">SPEED<i style="--v:100%"></i><em>268</em></div>
+              <div class="bar">RANGE<i style="--v:100%"></i><em>440</em></div>
+            </div>
+            <div class="skill">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 16v6M2 12h6M16 12h6M5 5l4 4M15 15l4 4M19 5l-4 4M9 15l-4 4"/></svg></span>
+              <div><b>Arrow Storm · 7s</b><span>Unleash a ring of piercing arrows</span></div>
+            </div>
+            <div class="unlock">Unlock: <span class="tag">280 gems</span> or <span class="tag">12,000 gold</span></div>
+          </article>
+
+          <article class="hero-card reveal d2" style="--c:#965ae1">
+            <div class="portrait"><span data-sprite="mage"></span></div>
+            <span class="role">Flame Weaver · Caster</span>
+            <h3>Mage</h3>
+            <p>Fragile, but her fire bolts explode on impact and burn through packs.</p>
+            <div class="bars">
+              <div class="bar">HP<i style="--v:63%"></i><em>95</em></div>
+              <div class="bar">DAMAGE<i style="--v:85%"></i><em>17</em></div>
+              <div class="bar">SPEED<i style="--v:91%"></i><em>245</em></div>
+              <div class="bar">RANGE<i style="--v:95%"></i><em>420</em></div>
+            </div>
+            <div class="skill">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="15" r="5"/><path d="M13 11l7-7M16 13l5-3M11 8l3-5"/></svg></span>
+              <div><b>Meteor · 8s</b><span>Call down a meteor on the enemy horde</span></div>
+            </div>
+            <div class="unlock">Unlock: <span class="tag">450 gems</span> or <span class="tag">20,000 gold</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REALMS ============ -->
+    <section class="section" id="realms">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">The dungeon</span>
+          <h2>Descend through <span class="fire-text">three realms</span></h2>
+          <p>Every stage is a fresh wave of monsters. Clear it, grab the chest, and go deeper.</p>
+        </div>
+        <div class="realm-list">
+          <article class="realm reveal" style="--floor:#24322a;--wall:#4e6e4c;--accent:#6eaa5f">
+            <div><span class="num">Realm I · Stages 1–5</span><h3>Mossy Caverns</h3><p>Damp tunnels crawling with slimes, cave bats and lumbering brutes. Learn to dodge here.</p></div>
+            <div class="roster">
+              <div class="mob"><span data-sprite="enemy:slime"></span>Slime</div>
+              <div class="mob"><span data-sprite="enemy:bat"></span>Cave Bat</div>
+              <div class="mob"><span data-sprite="enemy:skel"></span>Skeleton</div>
+              <div class="mob"><span data-sprite="enemy:brute"></span>Cave Brute</div>
+            </div>
+            <div class="realm-boss"><small>Boss · Stage 5</small><span data-sprite="enemy:king"></span><b>Slime King</b></div>
+          </article>
+          <article class="realm reveal" style="--floor:#28243a;--wall:#706092;--accent:#aa96dc">
+            <div><span class="num">Realm II · Stages 6–10</span><h3>Bone Crypt</h3><p>A haunted tomb where skeleton archers rain arrows from a distance. Keep moving.</p></div>
+            <div class="roster">
+              <div class="mob"><span data-sprite="enemy:skel"></span>Skeleton</div>
+              <div class="mob"><span data-sprite="enemy:bat"></span>Cave Bat</div>
+              <div class="mob"><span data-sprite="enemy:archer"></span>Bone Archer</div>
+              <div class="mob"><span data-sprite="enemy:brute"></span>Cave Brute</div>
+            </div>
+            <div class="realm-boss"><small>Boss · Stage 10</small><span data-sprite="enemy:lord"></span><b>Bone Lord</b></div>
+          </article>
+          <article class="realm reveal" style="--floor:#36211e;--wall:#984832;--accent:#ff823c">
+            <div><span class="num">Realm III · Stages 11–15</span><h3>Ember Depths</h3><p>Lava-cracked halls where ember imps charge in sudden bursts of speed.</p></div>
+            <div class="roster">
+              <div class="mob"><span data-sprite="enemy:imp"></span>Ember Imp</div>
+              <div class="mob"><span data-sprite="enemy:skel"></span>Skeleton</div>
+              <div class="mob"><span data-sprite="enemy:archer"></span>Bone Archer</div>
+              <div class="mob"><span data-sprite="enemy:brute"></span>Cave Brute</div>
+            </div>
+            <div class="realm-boss"><small>Boss · Stage 15</small><span data-sprite="enemy:drake"></span><b>Ember Drake</b></div>
+          </article>
+        </div>
+        <p class="realm-note reveal">After stage 15 the realms loop, and every lap is harder than the last. How deep can you go?</p>
+      </div>
+    </section>
+
+    <!-- ============ BOSSES ============ -->
+    <section class="section" id="bosses">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Every 5th stage</span>
+          <h2>Bosses that <span class="fire-text">fight back</span></h2>
+          <p>Each boss has its own attack patterns. Learn them, dodge them, and claim a big gold reward.</p>
+        </div>
+        <div class="boss-grid">
+          <article class="boss reveal" style="--c:#5ad76e">
+            <span class="stage-tag">Stage 5</span>
+            <div class="art"><span data-sprite="enemy:king"></span></div>
+            <h3>Slime King</h3>
+            <div class="hpbar"><i style="--v:55%"></i></div>
+            <div class="nums"><span>Base HP <b>1,100</b></span><span>Reward <b>120 gold</b></span></div>
+            <ul>
+              <li>Slams the ground where you stand. Get out of the marked circle.</li>
+              <li>Splits off 3 slimes every 7 seconds.</li>
+              <li>Below half health, the slams come faster.</li>
+            </ul>
+          </article>
+          <article class="boss reveal d1" style="--c:#a070ff">
+            <span class="stage-tag">Stage 10</span>
+            <div class="art"><span data-sprite="enemy:lord"></span></div>
+            <h3>Bone Lord</h3>
+            <div class="hpbar"><i style="--v:75%"></i></div>
+            <div class="nums"><span>Base HP <b>1,500</b></span><span>Reward <b>180 gold</b></span></div>
+            <ul>
+              <li>Keeps his distance and fires rings of 16 bone shards.</li>
+              <li>Snipes you with aimed triple-shot volleys.</li>
+              <li>Below half health, the rings come faster.</li>
+            </ul>
+          </article>
+          <article class="boss reveal d2" style="--c:#ff6a2a">
+            <span class="stage-tag">Stage 15</span>
+            <div class="art"><span data-sprite="enemy:drake"></span></div>
+            <h3>Ember Drake</h3>
+            <div class="hpbar"><i style="--v:100%"></i></div>
+            <div class="nums"><span>Base HP <b>2,000</b></span><span>Reward <b>250 gold</b></span></div>
+            <ul>
+              <li>Breathes a wide fan of 7 fire bolts.</li>
+              <li>Spins and sprays a double spiral of flame.</li>
+              <li>Slows down while spinning. That's your chance to strike.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROGRESSION ============ -->
+    <section class="section" id="progress">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Get stronger</span>
+          <h2>Every run <span class="fire-text">builds your legend</span></h2>
+          <p>Perks power up the current run. Gold buys upgrades that last forever.</p>
+        </div>
+        <div class="prog">
+          <div class="panel reveal">
+            <h3>12 level-up perks</h3>
+            <p>Each time you level up, pick 1 of 3 random perks. Ranks stack, so every run plays differently.</p>
+            <div class="perks">
+              <div class="perk" style="--c:#ff6e5a"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Sharpened Edge</b><span>+20% damage</span></div><em>×8</em></div>
+              <div class="perk" style="--c:#ffaa3c"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Frenzy</b><span>+15% attack speed</span></div><em>×6</em></div>
+              <div class="perk" style="--c:#f0506e"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Vigor</b><span>+30 max HP, heal 30</span></div><em>×8</em></div>
+              <div class="perk" style="--c:#6ed2ff"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Fleet Foot</b><span>+10% move speed</span></div><em>×4</em></div>
+              <div class="perk" style="--c:#ffdc5a"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Multistrike</b><span>+1 projectile / wider cleave</span></div><em>×4</em></div>
+              <div class="perk" style="--c:#e0405e"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Vampirism</b><span>Heal 4% of damage dealt</span></div><em>×5</em></div>
+              <div class="perk" style="--c:#fff078"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Keen Eye</b><span>+10% critical hit chance</span></div><em>×5</em></div>
+              <div class="perk" style="--c:#8ce6ff"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Spirit Blades</b><span>+1 blade orbiting you</span></div><em>×4</em></div>
+              <div class="perk" style="--c:#6edc78"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Troll Blood</b><span>Regenerate 1.5 HP per second</span></div><em>×5</em></div>
+              <div class="perk" style="--c:#b482ff"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Arcane Haste</b><span>−15% skill cooldown</span></div><em>×4</em></div>
+              <div class="perk" style="--c:#78c8ff"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Wisdom</b><span>+20% XP gained</span></div><em>×4</em></div>
+              <div class="perk" style="--c:#ffc83c"><span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.2 5.5 22l1.7-7.4-5.7-5 7.5-.7z"/></svg></span><div><b>Greed</b><span>+25% gold this run</span></div><em>×4</em></div>
+            </div>
+          </div>
+          <div class="panel reveal d1">
+            <h3>Permanent upgrades</h3>
+            <p>Spend the gold you earn on upgrades that boost every hero, forever.</p>
+            <div class="upgrades">
+              <div class="upg"><b>Might</b><em>Lv 25</em><span>+6% damage per level</span></div>
+              <div class="upg"><b>Vitality</b><em>Lv 25</em><span>+8% max HP per level</span></div>
+              <div class="upg"><b>Swiftness</b><em>Lv 20</em><span>+3% move &amp; attack speed</span></div>
+              <div class="upg"><b>Fortune</b><em>Lv 20</em><span>+10% gold per level</span></div>
+              <div class="upg"><b>Alchemy</b><em>Lv 3</em><span>+1 healing potion per run</span></div>
+            </div>
+            <h3>7-day daily rewards</h3>
+            <p>Log in every day to grow your streak. Day 7 pays the most.</p>
+            <div class="daily">
+              <div class="day">Day 1<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc83c"/><circle cx="12" cy="12" r="6.5" fill="#ffdc6e"/></svg><b>150</b></div>
+              <div class="day">Day 2<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc83c"/><circle cx="12" cy="12" r="6.5" fill="#ffdc6e"/></svg><b>250</b></div>
+              <div class="day">Day 3<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc83c"/><circle cx="12" cy="12" r="6.5" fill="#ffdc6e"/></svg><b>400</b></div>
+              <div class="day">Day 4<svg viewBox="0 0 24 24"><path d="M12 22 2 9l4-6h12l4 6z" fill="#5ac8ff"/><path d="M12 22 7 9h10z" fill="#9ae6ff"/></svg><b>+5 gems</b></div>
+              <div class="day">Day 5<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc83c"/><circle cx="12" cy="12" r="6.5" fill="#ffdc6e"/></svg><b>700</b></div>
+              <div class="day">Day 6<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc83c"/><circle cx="12" cy="12" r="6.5" fill="#ffdc6e"/></svg><b>900</b></div>
+              <div class="day big">Day 7<svg viewBox="0 0 24 24"><path d="M12 22 2 9l4-6h12l4 6z" fill="#5ac8ff"/><path d="M12 22 7 9h10z" fill="#9ae6ff"/></svg><b>+30 gems</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CO-OP ============ -->
+    <section class="section" id="coop">
+      <div class="wrap coop">
+        <div class="reveal">
+          <span class="eyebrow">Co-op</span>
+          <div class="section-head" style="text-align:left;margin:0">
+            <h2>Raid together. <span class="fire-text">Up to 4 heroes.</span></h2>
+            <p>Team up with friends or jump into an open party. Every room has its own 5-digit code.</p>
+          </div>
+          <ol class="steps">
+            <li><div><b>Tap CO-OP</b><span>You're matched into an open party right away.</span></div></li>
+            <li><div><b>Share your room code</b><span>Friends tap JOIN ROOM and type your 5 digits to join you, even mid-raid.</span></div></li>
+            <li><div><b>Want it private?</b><span>Tap NEW ROOM. Private rooms are never used for quick match, so only people with the code can join.</span></div></li>
+            <li><div><b>Start the raid</b><span>The leader taps START RAID. If the leader leaves, another player takes over.</span></div></li>
+          </ol>
+          <div class="coop-facts">
+            <span class="chip">Join raids in progress</span>
+            <span class="chip">Play with KiX players too</span>
+            <span class="chip">Leader handover</span>
+          </div>
+        </div>
+        <div class="lobby reveal d2" aria-label="Example co-op lobby">
+          <h3>CO-OP PARTY</h3>
+          <div class="sub">Room code <span class="code-text">75024</span></div>
+          <div class="code" aria-hidden="true"><span>7</span><span>5</span><span>0</span><span>2</span><span>4</span></div>
+          <div class="party">
+            <div class="member"><span data-sprite="knight"></span><div><b>You</b><span>Knight · Best stage 12</span></div><span class="crown">LEADER</span></div>
+            <div class="member wait">Waiting for adventurer...</div>
+            <div class="member wait">Waiting for adventurer...</div>
+            <div class="member wait">Waiting for adventurer...</div>
+          </div>
+          <a class="btn" href="#download"><span>START RAID · <span class="ready-count">1</span>/4 ready</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section" id="gallery" style="padding-bottom:80px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Screenshots</span>
+          <h2>See it <span class="fire-text">in action</span></h2>
+          <p>Real screenshots from the Android app. Tap one to enlarge it.</p>
+        </div>
+      </div>
+      <div class="gallery reveal">
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/action.jpg" alt="Fighting a monster horde in Mossy Caverns" loading="lazy"></div><figcaption>Fight the horde</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/menu.jpg" alt="Main menu with the Knight selected" loading="lazy"></div><figcaption>Pick your hero</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/perks.jpg" alt="Level up screen with three perks to choose from" loading="lazy"></div><figcaption>Choose a perk</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/coop.jpg" alt="Co-op party lobby with room code" loading="lazy"></div><figcaption>Co-op party</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/upgrades.jpg" alt="Permanent upgrades screen" loading="lazy"></div><figcaption>Permanent upgrades</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/result.jpg" alt="Run results with a new record" loading="lazy"></div><figcaption>Beat your record</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/daily.jpg" alt="Daily reward calendar" loading="lazy"></div><figcaption>Daily rewards</figcaption></figure></button>
+        <button class="shot"><figure style="margin:0"><div class="frame"><img src="assets/img/screens/shop.jpg" alt="Shop with gem packs and gold" loading="lazy"></div><figcaption>Shop</figcaption></figure></button>
+      </div>
+      <div class="gallery-nav">
+        <button data-gal="prev" aria-label="Previous screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
+        <button data-gal="next" aria-label="Next screenshots"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
+    </section>
+
+    <!-- ============ HOW TO PLAY ============ -->
+    <section class="section" id="how" style="padding-top:60px">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">How to play</span>
+          <h2>Easy to learn, <span class="fire-text">one thumb to play</span></h2>
+        </div>
+        <div class="controls">
+          <div class="ctrl reveal" style="--c:#5aa8ff">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5" fill="currentColor"/></svg></span>
+            <h3>Move</h3><p>Drag anywhere on the screen to steer your hero. Keyboard: <kbd>WASD</kbd> or arrows.</p>
+          </div>
+          <div class="ctrl reveal d1" style="--c:#ff7a2a">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5 3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/></svg></span>
+            <h3>Attack</h3><p>Fully automatic. Your hero hits the nearest enemy in range, so you can focus on positioning.</p>
+          </div>
+          <div class="ctrl reveal d2" style="--c:#a77bff">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+            <h3>Skill</h3><p>Tap the big skill button for Whirlwind, Arrow Storm or Meteor. Keyboard: <kbd>E</kbd> / <kbd>Q</kbd>.</p>
+          </div>
+          <div class="ctrl reveal d3" style="--c:#4fd27a">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L5 18a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-10V3"/><path d="M7 15h10"/></svg></span>
+            <h3>Dash &amp; Potion</h3><p>Dash out of danger, or drink a potion to heal. Keyboard: <kbd>Space</kbd> / <kbd>R</kbd>.</p>
+          </div>
+        </div>
+        <div class="tips">
+          <div class="tip reveal"><b>Tip:</b> A boss waits at the end of every 5th stage. Save your skill for it.</div>
+          <div class="tip reveal d1"><b>Tip:</b> Perk ranks stack. Doubling down on Multistrike or Spirit Blades makes your hero very strong.</div>
+          <div class="tip reveal d2"><b>Tip:</b> Fallen? You get a few seconds to revive with gems. Otherwise you keep the gold you earned.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions, <span class="fire-text">answered</span></h2>
+        </div>
+        <div class="faq reveal">
+          <details open><summary>Is Emberfall Raiders free?</summary><p>Yes. The game is free to download and play, with no ads. Optional gem packs are sold through Google Play. Every hero can also be unlocked with gold earned by playing.</p></details>
+          <details><summary>Do I need an internet connection?</summary><p>Solo runs work offline. Co-op needs an internet connection to reach the party server.</p></details>
+          <details><summary>Which phones does it run on?</summary><p>Any phone or tablet with Android 7.0 or newer. The download is about 5 MB.</p></details>
+          <details><summary>Is my progress saved?</summary><p>Yes, automatically, on your phone. It is included in Android's backup and phone-to-phone transfer. If you uninstall the app or clear its data without a backup, your progress is lost.</p></details>
+          <details><summary>Can I play with friends who use the KiX app?</summary><p>Yes. The Android app and the KiX version share the same co-op server. Share your 5-digit room code and your friend can join from either one.</p></details>
+          <details><summary>I bought gems but didn't receive them. What now?</summary><p>Gems are added as soon as Google Play confirms the payment. If the app closed during a purchase, just open it again and the purchase is delivered. "Pending" payments arrive once they complete. The Starter Bundle is restored automatically after a reinstall. Still missing something? Contact us using the address below.</p></details>
+          <details><summary>Can I install the APK instead of using Google Play?</summary><p>Yes. Download the APK above and allow "Install unknown apps" when your phone asks. In-app purchases only work in the version installed from Google Play.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section" id="download" style="padding-top:40px">
+      <div class="wrap">
+        <div class="download reveal">
+          <img class="icon" src="assets/img/icon.png" alt="Emberfall Raiders icon" width="120" height="120">
+          <h2>Your raid <span class="fire-text">starts now</span></h2>
+          <p>Grab your weapon, gather your party and see how deep into the Ember Depths you can go.</p>
+          <div class="cta-row">
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.elcavz.emberfallraiders" target="_blank" rel="noopener">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#00d7fe" d="M7.5 4.3 27.2 24 7.5 43.7c-.6-.4-1-1.1-1-2V6.3c0-.9.4-1.6 1-2z"/><path fill="#00f076" d="m33.7 17.5-6.5 6.5L7.5 4.3c.4-.3 1-.4 1.5-.4.4 0 .8.1 1.2.3z"/><path fill="#ff3a44" d="M33.7 30.5 10.2 43.8c-.4.2-.8.3-1.2.3-.5 0-1.1-.1-1.5-.4L27.2 24z"/><path fill="#ffd500" d="m41.3 26.3-7.6 4.2-6.5-6.5 6.5-6.5 7.6 4.2c.8.5 1.3 1.3 1.3 2.3s-.5 1.8-1.3 2.3z"/></svg>
+              <span><small>Get it on</small><b>Google Play</b></span>
+            </a>
+            <a class="btn" href="downloads/EmberfallRaiders.apk" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+              Download APK
+            </a>
+          </div>
+          <div class="reqs">
+            <span class="chip">Version 1.0.5</span>
+            <span class="chip">Android 7.0+</span>
+            <span class="chip">About 5 MB</span>
+            <span class="chip">Also in the KiX / GameTok app</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© <span data-year>2026</span> Elcavz · Emberfall Raiders</div>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:renzsayaman.dev@gmail.com">Contact</a>
+        <a href="#faq">FAQ</a>
+        <a href="#top">Back to top ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="lightbox" tabindex="-1" role="dialog" aria-label="Screenshot"><img alt=""></div>
+
+  <script src="assets/sprites.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>
