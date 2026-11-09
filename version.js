@@ -8,7 +8,7 @@
         locks players out with nothing to update to.
    Keep `message` short (about 50 characters); it is shown on the update screen. */
 window.EMBERFALL_VERSION = {
-  latest: '1.0.9',
+  latest: '1.0.10',
   min: { android: '1.0.9', kix: '1.0.9' },
   message: '3 new heroes, drag-to-aim skills and more!',
   android: {
