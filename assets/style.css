@@ -165,6 +165,7 @@ main, header, footer { position: relative; z-index: 1; }
 .fs-knight { width: 170px; height: 170px; bottom: 4%; left: -6%; animation: bob 3.2s ease-in-out infinite; }
 .fs-mage { width: 128px; height: 128px; bottom: 30%; right: -8%; animation: bob 3.6s ease-in-out infinite 0.4s; }
 .fs-ranger { width: 120px; height: 120px; top: 14%; left: -4%; animation: bob 3.4s ease-in-out infinite 0.8s; }
+.fs-cleric { width: 112px; height: 112px; top: 2%; right: -2%; z-index: 2; animation: bob 3.8s ease-in-out infinite 1.2s; }
 .scroll-hint { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); color: var(--dim); font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .scroll-hint i { width: 22px; height: 36px; border-radius: 12px; border: 2px solid var(--dim); position: relative; }
 .scroll-hint i::after { content: ''; position: absolute; left: 50%; top: 7px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--ember-2); animation: wheel 1.8s ease-in-out infinite; }
@@ -215,6 +216,18 @@ main, header, footer { position: relative; z-index: 1; }
 .skill .ico svg { width: 24px; height: 24px; color: #fff; }
 .skill b { display: block; font-size: 16px; }
 .skill span { color: var(--muted); font-size: 14px; }
+.passive { margin: -6px 0 16px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: var(--muted); background: color-mix(in srgb, var(--c) 12%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 35%, transparent); }
+.passive b { color: color-mix(in srgb, var(--c) 65%, #fff); margin-right: 4px; }
+.skills { display: grid; gap: 8px; }
+.skills .skill { padding: 10px 14px; }
+.skills .skill .ico { width: 38px; height: 38px; }
+.skills .skill .ico svg { width: 20px; height: 20px; }
+.skill.ult { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--gold) 55%, transparent); background: linear-gradient(90deg, rgba(255, 211, 107, 0.08), rgba(0, 0, 0, 0.25)); }
+.ult-tag { font-style: normal; font-size: 11px; font-weight: 900; letter-spacing: 0.1em; color: #1a1230; background: var(--gold); padding: 1px 6px; border-radius: 6px; margin-left: 4px; vertical-align: 2px; }
+.news { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.new-item { padding: 22px; border-radius: var(--radius); background: var(--panel); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 40%, transparent); border-top: 3px solid var(--c); }
+.new-item b { display: block; font-size: 18px; margin-bottom: 6px; color: color-mix(in srgb, var(--c) 60%, #fff); }
+.new-item span { color: var(--muted); font-size: 15px; }
 .unlock { margin-top: 16px; font-size: 14px; font-weight: 800; color: var(--dim); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .unlock .tag { padding: 4px 10px; border-radius: 99px; background: rgba(255, 255, 255, 0.06); color: var(--text); }
 .unlock .tag.free { background: rgba(79, 210, 122, 0.15); color: var(--green); }
@@ -445,6 +458,7 @@ main, header, footer { position: relative; z-index: 1; }
   .hero-grid, .boss-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; }
   .prog, .coop { grid-template-columns: 1fr; }
   .tips { grid-template-columns: 1fr; }
+  .news { grid-template-columns: 1fr; }
   .scroll-hint { display: none; }
 }
 @media (max-width: 560px) {

@@ -128,9 +128,9 @@
     const party = $('.party', lobby);
     const ready = $('.ready-count', lobby);
     const crew = [
-      { cls: 'ranger', name: 'Mira', hero: 'Ranger', best: 14 },
-      { cls: 'mage', name: 'Kael', hero: 'Mage', best: 22 },
-      { cls: 'knight', name: 'Bram', hero: 'Knight', best: 9 },
+      { cls: 'cleric', name: 'Mira', hero: 'Cleric (Support)', best: 14 },
+      { cls: 'shade', name: 'Kael', hero: 'Shade (Assassin)', best: 22 },
+      { cls: 'warden', name: 'Bram', hero: 'Warden (Tank)', best: 9 },
     ];
     const rollCode = () => {
       const code = String(10000 + Math.floor(Math.random() * 90000));

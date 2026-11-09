@@ -85,6 +85,9 @@
     knight: { color: 0x5484e4ff, trim: 0xe6ecfaff },
     ranger: { color: 0x46be6eff, trim: 0xa06e3cff },
     mage: { color: 0x965ae1ff, trim: 0xffbe46ff },
+    warden: { color: 0xc48c3cff, trim: 0xffde8cff },
+    shade: { color: 0x544676ff, trim: 0xe63250ff },
+    cleric: { color: 0xeee6cdff, trim: 0xffcd50ff },
   };
 
   function hero(cls, wf) {
@@ -111,6 +114,25 @@
         L.line(ax - Math.cos(wf) * 16, ay - Math.sin(wf) * 16, ax + Math.cos(wf) * 24, ay + Math.sin(wf) * 24, 0xd8c09aff, 2.4);
         const hx = ax + Math.cos(wf) * 27, hy = ay + Math.sin(wf) * 27;
         L.poly([hx, hy, hx - Math.cos(wf - 0.5) * 7, hy - Math.sin(wf - 0.5) * 7, hx - Math.cos(wf + 0.5) * 7, hy - Math.sin(wf + 0.5) * 7], 0xe8eef8ff);
+      } else if (cls === 'warden') {
+        // war hammer on one side, round shield in front
+        const ha = wf + 0.9;
+        const hx = x + Math.cos(wf + 1.3) * 20, hy = y + Math.sin(wf + 1.3) * 20;
+        L.line(hx, hy, hx + Math.cos(ha) * 34, hy + Math.sin(ha) * 34, 0x6a4a2aff, 6);
+        L.circle(hx + Math.cos(ha) * 36, hy + Math.sin(ha) * 36, 10, 0x9aa0b0ff);
+      } else if (cls === 'shade') {
+        for (const side of [-1, 1]) {
+          const da = wf + side * 0.7;
+          const dx0 = x + Math.cos(wf + side * 1.2) * 18, dy0 = y + Math.sin(wf + side * 1.2) * 18;
+          L.line(dx0, dy0, dx0 + Math.cos(da) * 24, dy0 + Math.sin(da) * 24, 0xe8e4f4ff, 4);
+          L.circle(dx0, dy0, 3.5, 0xe03050ff);
+        }
+      } else if (cls === 'cleric') {
+        const sx = x + Math.cos(wf + 0.7) * 22, sy = y + Math.sin(wf + 0.7) * 22;
+        L.line(sx, sy - 22, sx, sy + 26, 0xe8d8a0ff, 5);
+        L.glow(sx, sy + 30, 22, 0xffe08aaa);
+        L.circle(sx, sy + 30, 8, 0xfff6c8ff);
+        L.rect(sx - 9, sy + 18, 18, 3, 0xffd040ff);
       } else {
         const sx = x + Math.cos(wf + 0.7) * 22, sy = y + Math.sin(wf + 0.7) * 22;
         L.line(sx, sy - 22, sx, sy + 26, 0x8a5a30ff, 5);
@@ -133,6 +155,36 @@
         L.poly([x - 16, y + 10, x + 16, y + 10, x, y + 32], 0x2f8a4aff);
         L.circle(x - 5, y + 7, 2.5, 0x202020ff);
         L.circle(x + 5, y + 7, 2.5, 0x202020ff);
+      } else if (cls === 'warden') {
+        L.poly([x - 13, y + 16, x - 22, y + 34, x - 7, y + 22], 0xf0e6d0ff);
+        L.poly([x + 13, y + 16, x + 22, y + 34, x + 7, y + 22], 0xf0e6d0ff);
+        L.circle(x, y + 11, 15, 0x9aa0b0ff);
+        L.ellipse(x - 5, y + 17, 5, 3, 0xffffff70, true);
+        L.rect(x - 11, y + 7, 22, 5, 0x2a2a38ff);
+        L.rect(x - 2, y + 2, 4, 12, 0x2a2a38ff);
+        // shield in front
+        const wx2 = x + Math.cos(wf) * 22, wy2 = y + Math.sin(wf) * 22;
+        L.circle(wx2, wy2, 19, 0x8a5a26ff);
+        L.circle(wx2, wy2, 15, 0xd8a04aff);
+        L.star(wx2, wy2, 7, 0xfff0c0ff);
+      } else if (cls === 'shade') {
+        L.circle(x, y + 11, 15, 0x2e2640ff);
+        L.poly([x - 15, y + 13, x + 15, y + 13, x, y + 34], 0x2e2640ff);
+        L.glow(x - 5, y + 9, 6, 0xff4060aa);
+        L.glow(x + 5, y + 9, 6, 0xff4060aa);
+        L.circle(x - 5, y + 9, 2.8, 0xff4060ff);
+        L.circle(x + 5, y + 9, 2.8, 0xff4060ff);
+        L.rect(x - 14, y - 2, 28, 6, 0xd03048ff);
+        L.poly([x + 8, y - 2, x + 20, y - 14, x + 14, y - 2], 0xd03048ff);
+      } else if (cls === 'cleric') {
+        L.circle(x, y + 10, 13, 0xf0d0b0ff);
+        L.arc(x, y + 10, 15, 0.1, Math.PI - 0.1, 0xfff8ecff, 6);
+        L.ellipse(x, y + 34, 14, 5, 0xffe08a88, true);
+        L.ellipse(x, y + 35, 9, 2.5, 0xfff6c8ee, true);
+        L.circle(x - 5, y + 7, 2.5, 0x202020ff);
+        L.circle(x + 5, y + 7, 2.5, 0x202020ff);
+        L.rect(x - 2, y - 8, 4, 12, 0xffd040ff);
+        L.rect(x - 6, y - 1, 12, 4, 0xffd040ff);
       } else {
         L.circle(x, y + 10, 13, 0xf0d0b0ff);
         L.poly([x - 19, y + 14, x + 19, y + 14, x + 4, y + 44], 0x6a3ab8ff);
@@ -248,11 +300,11 @@
 
   // view box half-size (+ vertical offset) so each sprite fills its box
   const BOX = {
-    knight: [74, -14], ranger: [62, -8], mage: [60, -12],
+    knight: [74, -14], ranger: [62, -8], mage: [60, -12], warden: [66, -12], shade: [60, -8], cleric: [62, -12],
     slime: [44, -6], bat: [58, -8], skel: [42, -6], archer: [46, -6], imp: [44, -8], brute: [52, -4],
     king: [66, -14], lord: [64, -14], drake: [86, -18],
   };
-  const HERO_ANGLE = { knight: 1.0, ranger: -0.15, mage: -Math.PI / 2 };
+  const HERO_ANGLE = { knight: 1.0, ranger: -0.15, mage: -Math.PI / 2, warden: -1.2, shade: -Math.PI / 2, cleric: -Math.PI / 2 };
 
   function sprite(name) {
     const kind = name.replace(/^enemy:/, '');
